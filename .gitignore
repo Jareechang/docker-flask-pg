@@ -1,0 +1,14 @@
+#virtualenv
+venv/
+
+# vim temp file
+*.swp
+
+# build files
+node_modules/*
+static/*
+.sass-cache/*
+
+*.log
+env.sh
+*.pyc

@@ -1,0 +1,17 @@
+from flask import Flask, request, url_for
+from flask_sqlalchemy import SQLAlchemy
+
+from server import views
+from server import app 
+
+# import REST routes
+from server import rest_server 
+
+# load file specified by APP_CONFIG_FILE
+# -- contains environment specific variables (production, development..etc)
+app.config.from_envvar('APP_CONFIG_FILE')
+
+db = SQLAlchemy(app)
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", debug=True)

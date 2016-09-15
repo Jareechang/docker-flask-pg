@@ -18,16 +18,10 @@ git clone git@github.com:Jareechang/docker-flask-pg.git
 
 ## Up and Running containers 
 
-1. Defining Environments variables
-Provided with **.env** file to define environments for running docker containers
+Defining Environments variables provided with **.env** file to define environments for running docker containers.
 
-2. Building an image based on the **docker-compose.yml** 
 ```
-docker-composer build
-```
-
-3. Run containers
-```
+docker-compose build
 docker-compose up -d
 ```
 

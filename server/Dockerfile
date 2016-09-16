@@ -1,8 +1,8 @@
 FROM python:2.7
 MAINTAINER Jerry Chang "therealjerrycan@gmail.com"
 
-ADD . /myproject
-WORKDIR /myproject
+ADD . /server
+WORKDIR /server
 
 RUN pip install -r requirements.txt
 

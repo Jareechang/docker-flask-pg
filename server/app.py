@@ -1,17 +1,17 @@
-from flask import Flask, request, url_for
+from flask import Flask 
 from flask_sqlalchemy import SQLAlchemy
 
-from myproject import views
-from myproject import app 
-
 # import REST routes
-from myproject import rest_server 
+import os
 
-# load file specified by APP_CONFIG_FILE
-# -- contains environment specific variables (production, development..etc)
-app.config.from_envvar('APP_CONFIG_FILE')
+def create_app():
+    app = Flask(__name__)
+    return app
 
-db = SQLAlchemy(app)
+def create_db(app):
+    db = SQLAlchemy(app)
+    return db
 
-if __name__ == "__main__":
-        app.run(host="0.0.0.0", debug=True)
+# set development as default
+if 'FLASK_ENV' not in os.environ:
+    os.environ['FLASK_ENV'] = 'development'

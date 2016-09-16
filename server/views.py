@@ -1,10 +1,5 @@
 from flask import render_template 
-from server import app
-
-# Route templates 
-# @app.route('/')
-# def index():
-    # return "Index page"
+from . import app 
 
 @app.route('/hello')
 def hello():

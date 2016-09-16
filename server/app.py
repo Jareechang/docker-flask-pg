@@ -5,13 +5,21 @@ from flask_sqlalchemy import SQLAlchemy
 import os
 
 def create_app():
+    """
+        create an instance of app and returns it
+    """
     app = Flask(__name__)
     return app
 
 def create_db(app):
+    """
+        create an instance of database conn. and returns it
+
+        :param app: instance of app 
+
+    """
     db = SQLAlchemy(app)
     return db
 
-# set development as default
 if 'FLASK_ENV' not in os.environ:
     os.environ['FLASK_ENV'] = 'development'

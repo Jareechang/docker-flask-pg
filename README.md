@@ -23,7 +23,9 @@ git clone git@github.com:Jareechang/docker-flask-pg.git
 
 ## Up and Running containers 
 
-#### In Production
+#### In Production:
+============================
+
 
 Defining Environment variables provided with **.env** file to define environments for running docker containers.
 
@@ -32,7 +34,9 @@ docker-compose build
 docker-compose up -d
 ```
 
-#### In Development
+#### In Development:
+============================
+
 
 add the following to your `~/.bashrc`:
 ```

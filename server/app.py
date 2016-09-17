@@ -8,7 +8,10 @@ def create_app():
     """
         create an instance of app and returns it
     """
-    app = Flask(__name__)
+    app = Flask(
+        __name__, 
+        template_folder='client/templates'
+    )
     return app
 
 def create_db(app):

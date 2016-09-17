@@ -4,7 +4,7 @@
   "description": "package for there app",
   "main": "server.js",
   "scripts": {
-    "watch": "./node_modules/.bin/webpack --watch --watch-poll --inline --hot",
+    "watch": "./node_modules/.bin/webpack   --watch --info false --watch-poll --inline --hot --port 3333",
     "build": "./node_modules/.bin/webpack"
   },
   "dependencies": {

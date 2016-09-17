@@ -1,6 +1,8 @@
 from flask import render_template 
 from . import app 
 
+import os
+
 @app.route('/hello')
 def hello():
     return "hello"
@@ -15,6 +17,6 @@ def template():
     return render_template(
         'index.html',
         title='Home',
-        FLASK_ENV=app.config['FLASK_ENV'],
+        FLASK_ENV=os.environ['FLASK_ENV'],
         user=user
     )

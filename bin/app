@@ -1,0 +1,34 @@
+#!/bin/bash
+function start_app
+{
+    echo  "starting application...."
+    # Run webpack watcher
+    cd server/ && npm run watch &
+    # Run python server
+    python ./run.py &
+}
+
+function stop_app
+{
+    echo  "Stop application...."
+    pkill -f "npm|node|python"
+}
+
+: '
+    NAME
+
+      --  app [start|stop]
+
+    DESCRIPTION
+        starts/stops the `webpack` background watch and the python web server.
+'
+case "$1" in
+    start)
+        start_app
+        ;;
+    stop)
+        stop_app
+        ;;
+    *)
+        echo "Usage: app  {start|stop|status}"
+esac

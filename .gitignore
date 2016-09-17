@@ -5,10 +5,11 @@ venv/
 *.swp
 
 # build files
-node_modules/*
-static/*
+server/node_modules/*
+server/static
 .sass-cache/*
 
 *.log
 env.sh
 *.pyc
+

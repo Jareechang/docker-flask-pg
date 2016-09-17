@@ -2,9 +2,4 @@
 
 {% block content %} 
     <div id="root"></div>
-    {% if FLASK_ENV == 'dev' %}
-        <script src="http://localhost:5000/static/js/bundle.js"></script>
-    {% else %}
-      <script src={{ url_for('static', filename="js/bundle.js") }}></script>
-    {% endif %}
 {% endblock %}

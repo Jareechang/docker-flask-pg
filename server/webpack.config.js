@@ -3,7 +3,10 @@ const webpack = require('webpack');
 
 module.exports = {
     devtool: 'eval',
-    entry: './app/assets/js/index.jsx',
+    entry:  [
+        'webpack-dev-server/client?http://0.0.0.0:3333', 
+        './client/assets/js/index.jsx',
+    ],
     output: {
         path: path.join(__dirname, 'static/js/'),
         filename: 'bundle.js',

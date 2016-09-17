@@ -24,7 +24,6 @@ git clone git@github.com:Jareechang/docker-flask-pg.git
 ## Up and Running containers 
 
 #### In Production:
-============================
 
 
 Defining Environment variables provided with **.env** file to define environments for running docker containers.
@@ -35,7 +34,6 @@ docker-compose up -d
 ```
 
 #### In Development:
-============================
 
 
 add the following to your `~/.bashrc`:
@@ -43,16 +41,8 @@ add the following to your `~/.bashrc`:
 export $PATH:/vagrant/{NAME_OF_YOUR_APP_FILE}/bin/
 ```
 
-starting your server: 
-```
-app start
-```
-
-stopping your server: 
-```
-app stop 
-```
-
+starting your server:  `app start`
+stopping your server:  `app stop`
 
 ## Customizations 
 

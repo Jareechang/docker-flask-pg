@@ -41,7 +41,7 @@ add the following to your `~/.bashrc`:
 export $PATH:/vagrant/{NAME_OF_YOUR_APP_FILE}/bin/
 ```
 
-starting your server:  `app start`
+starting your server:  `app start`  
 stopping your server:  `app stop`
 
 ## Customizations 

@@ -23,6 +23,3 @@ def create_db(app):
     """
     db = SQLAlchemy(app)
     return db
-
-if 'FLASK_ENV' not in os.environ:
-    os.environ['FLASK_ENV'] = 'development'

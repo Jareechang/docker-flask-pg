@@ -9,11 +9,10 @@ services:
     env_file: .env
     volumes:
       - .:/server
-    depends_on:
+    links:
       - db 
 
   db:
     image: jareechang/postgresql:9.4 
     ports: 
       - "50:5432"
-

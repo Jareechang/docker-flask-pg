@@ -5,9 +5,9 @@ venv/
 *.swp
 
 # build files
-server/node_modules/*
-server/static
-.sass-cache/*
+web/server/node_modules/*
+web/server/static
+web/server/.sass-cache/*
 
 *.log
 env.sh

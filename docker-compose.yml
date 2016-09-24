@@ -2,13 +2,13 @@ version: '2'
 
 services:
   web:
-    build: ./server
+    image: flask_app
     command: python run.py
     ports:
       - "80:5555"
     env_file: .env
     volumes:
-      - .:/server
+      - .:/project
     links:
       - db 
 

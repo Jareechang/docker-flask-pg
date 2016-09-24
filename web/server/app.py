@@ -4,6 +4,10 @@ from flask_sqlalchemy import SQLAlchemy
 # import REST routes
 import os
 
+if 'FLASK_ENV' not in os.environ:
+    os.environ['FLASK_ENV'] = 'development'
+
+
 def create_app():
     """
         create an instance of app and returns it

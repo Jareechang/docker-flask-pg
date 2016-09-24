@@ -13,6 +13,7 @@ services:
       - db 
 
   db:
+    env_file: .env
     image: jareechang/postgresql:9.4 
     ports: 
       - "50:5432"

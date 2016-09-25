@@ -13,14 +13,16 @@ function _unset_envs
     unset $(cat .env | egrep -o '(^[^#])(\w+?)' | xargs)
 }
 
-function _export_envs
+function _export_envs()
 {
-    envs = $(cat $2)
-    if [ ! env ]; then
-        echo "env file is empty, please provide valid path to the .env file"
-    else
-        echo envs
+    file_path=$1
+    if [ ! $file_path ]; then
+        echo "please provide the file path to the .env file"
+        exit
     fi
+
+    envs=$(cat $file_path | egrep '^[^#]' | xargs) # get all non-comment env variables
+    export $envs
 }
 
 function _stop
@@ -37,6 +39,7 @@ function _stop
     DESCRIPTION
         starts/stops the `webpack` background watch and the python web server.
 '
+
 case "$1" in
     start)
         _start
@@ -48,8 +51,8 @@ case "$1" in
         _unset_envs
         ;;
     export_envs)
-        _exports_envs
+        _export_envs $2 
         ;;
     *)
-        echo "Usage: app  {start|stop|status}"
+        echo "Usage: app  {start|stop|unset_envs|export_envs}"
 esac

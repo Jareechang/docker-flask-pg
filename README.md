@@ -53,7 +53,7 @@ Stopping your server:  `app stop`
 using the existing **.env**, you could _add/remove_ environment variables to suit 
 your development needs.
 
-set environments: `app export_envs`
+set environments: `app export_envs`  
 unset environments: `app unset_envs`
 
 

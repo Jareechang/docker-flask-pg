@@ -1,5 +1,5 @@
 #!/bin/bash
-function start_app
+function _start
 {
     echo  "starting application...."
     # Run webpack watcher
@@ -8,7 +8,22 @@ function start_app
     python ./run.py &
 }
 
-function stop_app
+function _unset_envs
+{
+    unset $(cat .env | egrep -o '(^[^#])(\w+?)' | xargs)
+}
+
+function _export_envs
+{
+    envs = $(cat $2)
+    if [ ! env ]; then
+        echo "env file is empty, please provide valid path to the .env file"
+    else
+        echo envs
+    fi
+}
+
+function _stop
 {
     echo  "Stop application...."
     pkill -f "npm|node|python"
@@ -24,10 +39,16 @@ function stop_app
 '
 case "$1" in
     start)
-        start_app
+        _start
         ;;
     stop)
-        stop_app
+        _stop
+        ;;
+    unset_envs)
+        _unset_envs
+        ;;
+    export_envs)
+        _exports_envs
         ;;
     *)
         echo "Usage: app  {start|stop|status}"

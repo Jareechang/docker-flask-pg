@@ -41,8 +41,21 @@ add the following to your `~/.bashrc`:
 export $PATH:/vagrant/{NAME_OF_YOUR_APP_FILE}/bin/
 ```
 
-starting your server:  `app start`  
-stopping your server:  `app stop`
+#### Utility (app)
+
+###### App - start/stop
+
+Starting your server:  `app start`  
+Stopping your server:  `app stop`
+
+###### App - environments
+
+using the existing **.env**, you could _add/remove_ environment variables to suit 
+your development needs.
+
+set environments: `app export_envs`
+unset environments: `app unset_envs`
+
 
 ## Customizations 
 

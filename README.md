@@ -50,11 +50,11 @@ Stopping your server:  `app stop`
 
 ###### App - environments
 
-using the existing **.env**, you could _add/remove_ environment variables to suit 
-your development needs.
+Managing environments running locally on *vagrant*, please follow the instructions below.
 
-set environments: `app export_envs`  
-unset environments: `app unset_envs`
+**On Linux:** create a `exports.sh` file via the command `app create_export_file` then run `source exports.sh`
+
+**note:** to unset the *env variables* run `unset $(cat .env | egrep -o '^[^#]\w+?' | xargs)`
 
 
 ## Customizations 

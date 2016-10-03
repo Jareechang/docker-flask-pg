@@ -1,14 +1,18 @@
 #!/bin/bash
 
-EXPORT_FILE_PATH="/home/vagrant/flask_app/exports.sh"
+ROOT_PATH="/home/vagrant/flask_app"
+APP_PATH="$ROOT_PATH/web"
+EXPORT_FILE_PATH="$ROOT_PATH/exports.sh"
 
 function _start
 {
+    run_path="$APP_PATH/run.py"
+
     echo  "starting application...."
     # Run webpack watcher
     cd server/ && npm run watch &
     # Run python server
-    python ./run.py &
+    python $run_path &
 }
 
 function _create_export_file()

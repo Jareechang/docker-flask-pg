@@ -52,7 +52,9 @@ Stopping your server:  `app stop`
 
 Managing environments running locally on *vagrant*, please follow the instructions below.
 
-**On Linux:** create a `exports.sh` file via the command `app create_export_file` then run `source exports.sh`
+**On Linux:**   
+
+create a `exports.sh` file via the command `app create_export_file` then run `source exports.sh`  
 
 **note:** to unset the *env variables* run `unset $(cat .env | egrep -o '^[^#]\w+?' | xargs)`
 

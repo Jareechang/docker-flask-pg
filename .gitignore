@@ -12,6 +12,9 @@ web/server/.sass-cache/*
 # generated files
 exports.sh
 
+# Extras
+web/server/requirements_backup.txt
+
 *.log
 env.sh
 *.pyc

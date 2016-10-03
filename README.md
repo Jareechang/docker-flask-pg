@@ -58,6 +58,10 @@ create a `exports.sh` file via the command `app create_export_file` then run `so
 
 **note:** to unset the *env variables* run `unset $(cat .env | egrep -o '^[^#]\w+?' | xargs)`
 
+###### Helpful commands
+
+**Delete all containers:** `docker rm $(docker ps -a -q)`   
+**remove all Images:** `docker rmi $(docker images -q)`   
 
 ## Customizations 
 

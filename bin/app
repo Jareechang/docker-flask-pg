@@ -1,4 +1,7 @@
 #!/bin/bash
+
+EXPORT_FILE_PATH="/home/vagrant/flask_app/exports.sh"
+
 function _start
 {
     echo  "starting application...."
@@ -10,19 +13,28 @@ function _start
 
 function _unset_envs
 {
-    unset $(cat .env | egrep -o '(^[^#])(\w+?)' | xargs)
+    bash -c "unset $(cat .env | egrep -o '(^[^#])(\w+?)' | xargs)"
 }
 
-function _export_envs()
+function _create_export_file()
 {
-    file_path=$1
-    if [ ! $file_path ]; then
+    env_file_path=$1
+    if [ ! $env_file_path ]; then
         echo "please provide the file path to the .env file"
         exit
     fi
 
-    envs=$(cat $file_path | egrep '^[^#]' | xargs) # get all non-comment env variables
-    export $envs
+    echo "creating an environment export file at $EXPORT_FILE_PATH....."
+
+    if [ -e "$EXPORT_FILE_PATH" ]; then
+        # clear content of export file path
+        > $EXPORT_FILE_PATH
+    fi
+
+    sudo chmod 755 exports.sh >> $EXPORT_FILE_PATH
+
+    # get all non-comment env variables
+    cat $file_path | egrep '^[^#]' | awk '{print "export "$1}' >> $EXPORT_FILE_PATH 
 }
 
 function _stop
@@ -50,9 +62,9 @@ case "$1" in
     unset_envs)
         _unset_envs
         ;;
-    export_envs)
-        _export_envs $2 
+    create_export_file)
+        _create_export_file $2 
         ;;
     *)
-        echo "Usage: app  {start|stop|unset_envs|export_envs}"
+        echo "Usage: app  {start|stop|unset_envs|create_export_file}"
 esac

@@ -9,6 +9,9 @@ web/server/node_modules/*
 web/server/static
 web/server/.sass-cache/*
 
+# generated files
+exports.sh
+
 *.log
 env.sh
 *.pyc

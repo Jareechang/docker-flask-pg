@@ -11,11 +11,6 @@ function _start
     python ./run.py &
 }
 
-function _unset_envs
-{
-    bash -c "unset $(cat .env | egrep -o '(^[^#])(\w+?)' | xargs)"
-}
-
 function _create_export_file()
 {
     env_file_path=$1
@@ -59,12 +54,9 @@ case "$1" in
     stop)
         _stop
         ;;
-    unset_envs)
-        _unset_envs
-        ;;
     create_export_file)
         _create_export_file $2 
         ;;
     *)
-        echo "Usage: app  {start|stop|unset_envs|create_export_file}"
+        echo "Usage: app  {start|stop|create_export_file}"
 esac

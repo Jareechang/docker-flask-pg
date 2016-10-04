@@ -39,7 +39,7 @@ function _create_export_file()
 function _stop
 {
     echo  "Stop application...."
-    pkill -f "npm|node|python"
+    pkill -U vagrant -f "npm|node|python"
 }
 
 : '
